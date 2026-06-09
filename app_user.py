@@ -14,7 +14,8 @@ model = None
 try:
     model = load_model()
 except Exception as e:
-    st.warning('Model not found or failed to load. Run train_model.py or the notebook to create car_price_model_user.joblib')
+    st.error(f"Model loading error: {e}")
+    st.stop()
 
 # If dataset exists, try to populate select boxes
 try:
